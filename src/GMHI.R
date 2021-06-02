@@ -10,7 +10,7 @@ parse_species_list <- function(species_file){
 
 
 #I/O---------------------------------------------------
-species_relative_abundance_file <- "./species_relative_abundances.csv"
+species_relative_abundance_file <- "../data/taxnomy.csv"
 MH_species_file <- "./MH_species.txt"
 MN_species_file <- "./MN_species.txt"
 output_file = 'GMHI_output.csv'
