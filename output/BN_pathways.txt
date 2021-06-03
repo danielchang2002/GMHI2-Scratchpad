@@ -1,0 +1,123 @@
+3-HYDROXYPHENYLACETATE-DEGRADATION-PWY: 4-hydroxyphenylacetate degradation
+7ALPHADEHYDROX-PWY: cholate degradation (bacteria, anaerobic)
+AEROBACTINSYN-PWY: aerobactin biosynthesis
+ALLANTOINDEG-PWY: superpathway of allantoin degradation in yeast
+ARGDEG-PWY: superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation
+ARGORNPROST-PWY: arginine, ornithine and proline interconversion
+AST-PWY: L-arginine degradation II (AST pathway)
+CATECHOL-ORTHO-CLEAVAGE-PWY: catechol degradation to &beta;-ketoadipate
+ECASYN-PWY: enterobacterial common antigen biosynthesis
+ENTBACSYN-PWY: enterobactin biosynthesis
+FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation
+GALACTARDEG-PWY: D-galactarate degradation I
+GLUCARDEG-PWY: D-glucarate degradation I
+GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation
+GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation
+GLYCOL-GLYOXDEG-PWY: superpathway of glycol metabolism and degradation
+GLYCOLYSIS-TCA-GLYOX-BYPASS: superpathway of glycolysis, pyruvate dehydrogenase, TCA, and glyoxylate bypass
+GLYOXYLATE-BYPASS: glyoxylate cycle
+HCAMHPDEG-PWY: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate
+KDO-NAGLIPASYN-PWY: superpathway of (Kdo)2-lipid A biosynthesis
+KETOGLUCONMET-PWY: ketogluconate metabolism
+LPSSYN-PWY: superpathway of lipopolysaccharide biosynthesis
+METHGLYUT-PWY: superpathway of methylglyoxal degradation
+NAD-BIOSYNTHESIS-II: NAD salvage pathway II
+ORNARGDEG-PWY: superpathway of L-arginine and L-ornithine degradation
+ORNDEG-PWY: superpathway of ornithine degradation
+P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase)
+P122-PWY: heterolactic fermentation
+P124-PWY: Bifidobacterium shunt
+P163-PWY: L-lysine fermentation to acetate and butanoate
+P164-PWY: purine nucleobases degradation I (anaerobic)
+P23-PWY: reductive TCA cycle I
+POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli)
+PROTOCATECHUATE-ORTHO-CLEAVAGE-PWY: protocatechuate degradation II (ortho-cleavage pathway)
+PWY-2723: trehalose degradation V
+PWY-3781: aerobic respiration I (cytochrome c)
+PWY-4041: &gamma;-glutamyl cycle
+PWY-4702: phytate degradation I
+PWY-5022: 4-aminobutanoate degradation V
+PWY-5083: NAD/NADH phosphorylation and dephosphorylation
+PWY-5088: L-glutamate degradation VIII (to propanoate)
+PWY-5138: unsaturated, even numbered fatty acid &beta;-oxidation
+PWY-5173: superpathway of acetyl-CoA biosynthesis
+PWY-5180: toluene degradation I (aerobic) (via o-cresol)
+PWY-5182: toluene degradation II (aerobic) (via 4-methylcatechol)
+PWY-5384: sucrose degradation IV (sucrose phosphorylase)
+PWY-5415: catechol degradation I (meta-cleavage pathway)
+PWY-5417: catechol degradation III (ortho-cleavage pathway)
+PWY-5431: aromatic compounds degradation via &beta;-ketoadipate
+PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle
+PWY-561: superpathway of glyoxylate cycle and fatty acid degradation
+PWY-5656: mannosylglycerate biosynthesis I
+PWY-5692: allantoin degradation to glyoxylate II
+PWY-5705: allantoin degradation to glyoxylate III
+PWY-5723: Rubisco shunt
+PWY-5747: 2-methylcitrate cycle II
+PWY-5791: 1,4-dihydroxy-2-naphthoate biosynthesis II (plants)
+PWY-5837: 1,4-dihydroxy-2-naphthoate biosynthesis I
+PWY-5838: superpathway of menaquinol-8 biosynthesis I
+PWY-5840: superpathway of menaquinol-7 biosynthesis
+PWY-5845: superpathway of menaquinol-9 biosynthesis
+PWY-5850: superpathway of menaquinol-6 biosynthesis I
+PWY-5855: ubiquinol-7 biosynthesis (prokaryotic)
+PWY-5856: ubiquinol-9 biosynthesis (prokaryotic)
+PWY-5857: ubiquinol-10 biosynthesis (prokaryotic)
+PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I
+PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis
+PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis
+PWY-5863: superpathway of phylloquinol biosynthesis
+PWY-5896: superpathway of menaquinol-10 biosynthesis
+PWY-5897: superpathway of menaquinol-11 biosynthesis
+PWY-5898: superpathway of menaquinol-12 biosynthesis
+PWY-5899: superpathway of menaquinol-13 biosynthesis
+PWY-5910: superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate)
+PWY-5918: superpathay of heme biosynthesis from glutamate
+PWY-5920: superpathway of heme biosynthesis from glycine
+PWY-6185: 4-methylcatechol degradation (ortho cleavage)
+PWY-622: starch biosynthesis
+PWY-6263: superpathway of menaquinol-8 biosynthesis II
+PWY-6285: superpathway of fatty acids biosynthesis (E. coli)
+PWY-6435: 4-hydroxybenzoate biosynthesis V
+PWY-6467: Kdo transfer to lipid IVA III (Chlamydia)
+PWY-6471: peptidoglycan biosynthesis IV (Enterococcus faecium)
+PWY-6628: superpathway of L-phenylalanine biosynthesis
+PWY-6629: superpathway of L-tryptophan biosynthesis
+PWY-6630: superpathway of L-tyrosine biosynthesis
+PWY-6690: cinnamate and 3-hydroxycinnamate degradation to 2-oxopent-4-enoate
+PWY-6708: ubiquinol-8 biosynthesis (prokaryotic)
+PWY-6731: starch degradation III
+PWY-6803: phosphatidylcholine acyl editing
+PWY-6823: molybdenum cofactor biosynthesis
+PWY-6859: all-trans-farnesol biosynthesis
+PWY-6876: isopropanol biosynthesis
+PWY-6891: thiazole biosynthesis II (Bacillus)
+PWY-6895: superpathway of thiamin diphosphate biosynthesis II
+PWY-7013: L-1,2-propanediol degradation
+PWY-7039: phosphatidate metabolism, as a signaling molecule
+PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type
+PWY-7204: pyridoxal 5'-phosphate salvage II (plants)
+PWY-7254: TCA cycle VII (acetate-producers)
+PWY-7269: NAD/NADP-NADH/NADPH mitochondrial interconversion (yeast)
+PWY-7279: aerobic respiration II (cytochrome c) (yeast)
+PWY-7315: dTDP-N-acetylthomosamine biosynthesis
+PWY-7391: isoprene biosynthesis II (engineered)
+PWY-7392: taxadiene biosynthesis (engineered)
+PWY-7399: methylphosphonate degradation II
+PWY-7409: phospholipid remodeling (phosphatidylethanolamine, yeast)
+PWY-7446: sulfoglycolysis
+PWY-922: mevalonate pathway I
+PWY0-1241: ADP-L-glycero-&beta;-D-manno-heptose biosynthesis
+PWY0-1277: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation
+PWY0-1338: polymyxin resistance
+PWY0-1415: superpathway of heme biosynthesis from uroporphyrinogen-III
+PWY0-1533: methylphosphonate degradation I
+PWY0-321: phenylacetate degradation I (aerobic)
+PWY0-41: allantoin degradation IV (anaerobic)
+PWY0-42: 2-methylcitrate cycle I
+PWY66-389: phytol degradation
+REDCITCYC: TCA cycle VIII (helicobacter)
+TCA-GLYOX-BYPASS: superpathway of glyoxylate bypass and TCA
+TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis
+UBISYN-PWY: superpathway of ubiquinol-8 biosynthesis (prokaryotic)
+URDEGR-PWY: superpathway of allantoin degradation in plants
