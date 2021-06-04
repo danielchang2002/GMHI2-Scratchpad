@@ -1,0 +1,8 @@
+s__Alistipes_putredinis
+s__Alistipes_shahii
+s__Bacteroidales_bacterium_ph8
+s__Barnesiella_intestinihominis
+s__Bifidobacterium_adolescentis
+s__Collinsella_aerofaciens
+s__Prevotella_copri
+s__Sutterella_wadsworthensis
