@@ -1,8 +1,0 @@
-METHANOGENESIS-PWY: methanogenesis from H2 and CO2
-PWY-5871: ubiquinol-9 biosynthesis (eukaryotic)
-PWY-5873: ubiquinol-7 biosynthesis (eukaryotic)
-PWY-7209: superpathway of pyrimidine ribonucleosides degradation
-PWY-7235: superpathway of ubiquinol-6 biosynthesis (eukaryotic)
-PWY-7286: 7-(3-amino-3-carboxypropyl)-wyosine biosynthesis
-PWY-7371: 1,4-dihydroxy-6-naphthoate biosynthesis II
-PWY-7456: mannan degradation

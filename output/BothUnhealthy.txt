@@ -1,9 +1,0 @@
-s__Bacteroides_fragilis
-s__Bacteroides_thetaiotaomicron
-s__Clostridium_bolteae
-s__Escherichia_coli
-s__Klebsiella_pneumoniae
-s__Roseburia_inulinivorans
-s__Ruminococcus_gnavus
-s__Ruminococcus_torques
-s__Streptococcus_salivarius
