@@ -1,27 +1,48 @@
 s__Acidaminococcus_fermentans
 s__Acidaminococcus_intestini
 s__Actinomyces_odontolyticus
+s__Actinomyces_turicensis
+s__Actinomyces_viscosus
+s__Aggregatibacter_segnis
+s__Akkermansia_muciniphila
 s__Alistipes_finegoldii
 s__Alistipes_indistinctus
+s__Alistipes_onderdonkii
 s__Alistipes_putredinis
 s__Alistipes_senegalensis
 s__Alistipes_shahii
 s__Alistipes_sp_AP11
+s__Alistipes_sp_HGB5
+s__Alloscardovia_omnicolens
+s__Anaerofustis_stercorihominis
+s__Anaeroglobus_geminatus
 s__Anaerostipes_hadrus
 s__Anaerotruncus_colihominis
 s__Atopobium_parvulum
+s__Atopobium_rimae
 s__Bacteroidales_bacterium_ph8
 s__Bacteroides_caccae
 s__Bacteroides_cellulosilyticus
 s__Bacteroides_clarus
 s__Bacteroides_coprocola
+s__Bacteroides_coprophilus
 s__Bacteroides_dorei
 s__Bacteroides_eggerthii
+s__Bacteroides_faecis
 s__Bacteroides_finegoldii
 s__Bacteroides_fragilis
+s__Bacteroides_intestinalis
 s__Bacteroides_massiliensis
+s__Bacteroides_oleiciplenus
+s__Bacteroides_pectinophilus
 s__Bacteroides_plebeius
 s__Bacteroides_salyersiae
+s__Bacteroides_sp_2_1_22
+s__Bacteroides_sp_3_1_19
+s__Bacteroides_stercoris
+s__Bacteroides_thetaiotaomicron
+s__Bacteroides_vulgatus
+s__Barnesiella_intestinihominis
 s__Bifidobacterium_adolescentis
 s__Bifidobacterium_angulatum
 s__Bifidobacterium_bifidum
@@ -30,77 +51,199 @@ s__Bifidobacterium_catenulatum
 s__Bifidobacterium_longum
 s__Bifidobacterium_pseudocatenulatum
 s__Bilophila_wadsworthia
+s__Blautia_hansenii
 s__Blautia_hydrogenotrophica
+s__Burkholderiales_bacterium_1_1_47
+s__Butyricicoccus_pullicaecorum
 s__Butyricimonas_synergistica
+s__Butyrivibrio_crossotus
+s__Campylobacter_hominis
+s__candidate_division_TM7_single_cell_isolate_TM7b
 s__candidate_division_TM7_single_cell_isolate_TM7c
+s__Catenibacterium_mitsuokai
+s__Citrobacter_freundii
 s__Clostridiaceae_bacterium_JC118
 s__Clostridium_asparagiforme
 s__Clostridium_bartlettii
 s__Clostridium_bolteae
 s__Clostridium_celatum
 s__Clostridium_citroniae
+s__Clostridium_clostridioforme
+s__Clostridium_difficile
 s__Clostridium_hathewayi
+s__Clostridium_hylemonae
 s__Clostridium_leptum
 s__Clostridium_methylpentosum
 s__Clostridium_perfringens
+s__Clostridium_ramosum
+s__Clostridium_sp_KLE_1755
+s__Clostridium_sp_L2_50
 s__Collinsella_tanakaei
+s__Coprobacillus_sp_D6
 s__Coprobacter_fastidiosus
+s__Coprococcus_catus
 s__Coprococcus_comes
+s__Coprococcus_eutactus
+s__Coprococcus_sp_ART55_1
+s__Coriobacteriaceae_bacterium_phI
+s__Corynebacterium_durum
 s__Desulfovibrio_desulfuricans
 s__Desulfovibrio_piger
 s__Dialister_invisus
 s__Dialister_succinatiphilus
 s__Dorea_formicigenerans
+s__Dorea_longicatena
+s__Eggerthella_lenta
+s__Enterobacter_aerogenes
 s__Enterobacter_cloacae
+s__Enterococcus_avium
+s__Enterococcus_casseliflavus
+s__Enterococcus_durans
+s__Enterococcus_faecalis
 s__Enterococcus_faecium
+s__Erysipelotrichaceae_bacterium_2_2_44A
+s__Erysipelotrichaceae_bacterium_21_3
+s__Erysipelotrichaceae_bacterium_3_1_53
 s__Erysipelotrichaceae_bacterium_5_2_54FAA
 s__Erysipelotrichaceae_bacterium_6_1_45
+s__Escherichia_coli
 s__Eubacterium_biforme
+s__Eubacterium_brachy
 s__Eubacterium_cylindroides
 s__Eubacterium_eligens
+s__Eubacterium_hallii
+s__Eubacterium_limosum
 s__Eubacterium_ramulus
 s__Eubacterium_rectale
 s__Eubacterium_siraeum
+s__Eubacterium_sp_3_1_31
 s__Faecalibacterium_prausnitzii
+s__Finegoldia_magna
+s__Flavonifractor_plautii
+s__Fusobacterium_gonidiaformans
+s__Fusobacterium_mortiferum
 s__Fusobacterium_nucleatum
+s__Fusobacterium_periodonticum
+s__Fusobacterium_ulcerans
 s__Fusobacterium_varium
+s__Gardnerella_vaginalis
+s__Gemella_haemolysans
 s__Gemella_morbillorum
 s__Gemella_sanguinis
 s__Gordonibacter_pamelaeae
 s__Granulicatella_adiacens
+s__Granulicatella_elegans
 s__Haemophilus_parainfluenzae
 s__Haemophilus_pittmaniae
+s__Haemophilus_sputorum
 s__Holdemania_filiformis
+s__Holdemania_sp_AP2
+s__Klebsiella_oxytoca
 s__Klebsiella_pneumoniae
 s__Lachnospiraceae_bacterium_1_1_57FAA
+s__Lachnospiraceae_bacterium_1_4_56FAA
+s__Lachnospiraceae_bacterium_3_1_46FAA
 s__Lachnospiraceae_bacterium_3_1_57FAA_CT1
+s__Lachnospiraceae_bacterium_5_1_57FAA
+s__Lachnospiraceae_bacterium_5_1_63FAA
+s__Lachnospiraceae_bacterium_6_1_63FAA
 s__Lachnospiraceae_bacterium_7_1_58FAA
 s__Lachnospiraceae_bacterium_8_1_57FAA
+s__Lachnospiraceae_bacterium_9_1_43BFAA
 s__Lactobacillus_acidophilus
 s__Lactobacillus_amylovorus
+s__Lactobacillus_crispatus
+s__Lactobacillus_curvatus
 s__Lactobacillus_delbrueckii
 s__Lactobacillus_gasseri
 s__Lactobacillus_mucosae
+s__Lactobacillus_plantarum
+s__Lactobacillus_reuteri
+s__Lactobacillus_rhamnosus
+s__Lactobacillus_sakei
 s__Lactobacillus_salivarius
+s__Lactobacillus_sanfranciscensis
+s__Lactobacillus_vaginalis
+s__Lactococcus_garvieae
+s__Lactococcus_lactis
+s__Lactococcus_raffinolactis
+s__Leuconostoc_lactis
+s__Leuconostoc_mesenteroides
+s__Leuconostoc_pseudomesenteroides
+s__Megamonas_funiformis
+s__Megamonas_hypermegale
+s__Megamonas_rupellensis
 s__Megasphaera_elsdenii
+s__Methanobrevibacter_smithii
+s__Methanosphaera_stadtmanae
+s__Mitsuokella_multacida
+s__Morganella_morganii
 s__Odoribacter_laneus
+s__Odoribacter_splanchnicus
+s__Oribacterium_sinus
+s__Oscillibacter_sp_KLE_1728
+s__Oscillibacter_sp_KLE_1745
 s__Oxalobacter_formigenes
+s__Parabacteroides_distasonis
+s__Parabacteroides_goldsteinii
+s__Parabacteroides_merdae
 s__Paraprevotella_clara
 s__Parasutterella_excrementihominis
+s__Parvimonas_micra
 s__Peptoniphilus_lacrimalis
+s__Peptostreptococcus_anaerobius
 s__Peptostreptococcus_stomatis
 s__Phascolarctobacterium_succinatutens
+s__Porphyromonas_asaccharolytica
+s__Porphyromonas_somerae
+s__Prevotella_buccalis
 s__Prevotella_copri
+s__Prevotella_disiens
 s__Prevotella_stercorea
 s__Prevotella_timonensis
+s__Propionibacterium_freudenreichii
+s__Proteus_mirabilis
+s__Pseudoflavonifractor_capillosus
+s__Pyramidobacter_piscolens
+s__Raoultella_ornithinolytica
+s__Roseburia_inulinivorans
+s__Rothia_dentocariosa
 s__Ruminococcaceae_bacterium_D16
+s__Ruminococcus_albus
 s__Ruminococcus_bromii
 s__Ruminococcus_callidus
+s__Ruminococcus_champanellensis
+s__Ruminococcus_flavefaciens
+s__Ruminococcus_gnavus
+s__Ruminococcus_lactaris
+s__Ruminococcus_obeum
+s__Ruminococcus_sp_5_1_39BFAA
+s__Ruminococcus_sp_JC304
+s__Ruminococcus_torques
+s__Saccharomyces_cerevisiae
+s__Scardovia_wiggsiae
+s__Shigella_sonnei
+s__Slackia_piriformis
 s__Solobacterium_moorei
+s__Staphylococcus_aureus
 s__Streptococcus_anginosus
+s__Streptococcus_australis
+s__Streptococcus_constellatus
+s__Streptococcus_cristatus
 s__Streptococcus_gordonii
+s__Streptococcus_infantarius
+s__Streptococcus_infantis
+s__Streptococcus_intermedius
+s__Streptococcus_macedonicus
 s__Streptococcus_mitis_oralis_pneumoniae
+s__Streptococcus_mutans
+s__Streptococcus_parasanguinis
+s__Streptococcus_peroris
+s__Streptococcus_salivarius
+s__Streptococcus_sanguinis
+s__Streptococcus_sobrinus
 s__Streptococcus_thermophilus
+s__Streptococcus_tigurinus
 s__Streptococcus_vestibularis
 s__Subdoligranulum_variabile
 s__Sutterella_wadsworthensis
@@ -108,47 +251,4 @@ s__Turicibacter_sanguinis
 s__Varibaculum_cambriense
 s__Veillonella_atypica
 s__Veillonella_parvula
-ALL-CHORISMATE-PWY: superpathway of chorismate metabolism
-CRNFORCAT-PWY: creatinine degradation I
-FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation
-GLUCARDEG-PWY: D-glucarate degradation I
-GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation
-HCAMHPDEG-PWY: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate
-HISDEG-PWY: L-histidine degradation I
-LPSSYN-PWY: superpathway of lipopolysaccharide biosynthesis
-METHGLYUT-PWY: superpathway of methylglyoxal degradation
-NAGLIPASYN-PWY: lipid IVA biosynthesis
-P124-PWY: Bifidobacterium shunt
-P125-PWY: superpathway of (R,R)-butanediol biosynthesis
-P163-PWY: L-lysine fermentation to acetate and butanoate
-P164-PWY: purine nucleobases degradation I (anaerobic)
-P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I
-PWY-5088: L-glutamate degradation VIII (to propanoate)
-PWY-5189: tetrapyrrole biosynthesis II (from glycine)
-PWY-5198: factor 420 biosynthesis
-PWY-5897: superpathway of menaquinol-11 biosynthesis
-PWY-5898: superpathway of menaquinol-12 biosynthesis
-PWY-5899: superpathway of menaquinol-13 biosynthesis
-PWY-5941: glycogen degradation II (eukaryotic)
-PWY-6415: L-ascorbate biosynthesis V
-PWY-6549: L-glutamine biosynthesis III
-PWY-6595: superpathway of guanosine nucleotides degradation (plants)
-PWY-6629: superpathway of L-tryptophan biosynthesis
-PWY-6690: cinnamate and 3-hydroxycinnamate degradation to 2-oxopent-4-enoate
-PWY-6892: thiazole biosynthesis I (E. coli)
-PWY-7039: phosphatidate metabolism, as a signaling molecule
-PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type
-PWY-7209: superpathway of pyrimidine ribonucleosides degradation
-PWY-7328: superpathway of UDP-glucose-derived O-antigen building blocks biosynthesis
-PWY-7371: 1,4-dihydroxy-6-naphthoate biosynthesis II
-PWY-7383: anaerobic energy metabolism (invertebrates, cytosol)
-PWY-7391: isoprene biosynthesis II (engineered)
-PWY-7399: methylphosphonate degradation II
-PWY0-1241: ADP-L-glycero-&beta;-D-manno-heptose biosynthesis
-PWY0-1415: superpathway of heme biosynthesis from uroporphyrinogen-III
-PWY490-3: nitrate reduction VI (assimilatory)
-PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)
-PWY66-389: phytol degradation
-PWY66-398: TCA cycle III (animals)
-SO4ASSIM-PWY: sulfate reduction I (assimilatory)
-THISYN-PWY: superpathway of thiamin diphosphate biosynthesis I
+s__Weissella_confusa
