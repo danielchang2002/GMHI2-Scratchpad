@@ -93,7 +93,7 @@ def clean_validation_taxonomy():
             taxonomy_val_scaled[list(X.columns)])
     taxonomy_val_scaled_cropped.to_csv(config.VAL_DIR + "taxonomy679.csv")
 
-    isHealthy_val = val_with_id.iloc[:, [1]]
+    isHealthy_val = val_with_id.iloc[:, [1]] == 'Healthy'
     isHealthy_val.to_csv(config.VAL_DIR + "isHealthy679.csv")
 
 
