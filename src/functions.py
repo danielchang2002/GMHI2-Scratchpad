@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import config
+from sklearn.preprocessing import LabelEncoder
 
 def load_train(boolean = False):
     """
@@ -64,16 +66,10 @@ def clean_training_pathway():
     filename = "Final_MetaCyc_pathways_4347.xlsx"
     df = pd.read_excel(config.RAW_DIR + filename, engine="openpyxl")
     df2 = df.copy()
-    indexed = df2.set_index("Sample Accession or Sample ID")
-    pathways_cropped = indexed.iloc[:, 30:]
-    pathways_cropped.index.name = None
-
-    transposed = pathways_cropped.T
-    transposed.index.name = "Pathway"
-    transposed = transposed.reindex(sorted(transposed.columns), axis=1)
-
-    # write to file
-    transposed.T.to_csv(config.TRAIN_DIR + "pathways.csv")
+    indexed = df2.set_index(['Study Accession', 'Sample Accession or Sample ID'])
+    cropped = indexed.iloc[:, 29:]
+    cropped_sorted = cropped.reindex(sorted(cropped.columns), axis=1)
+    cropped_sorted.to_csv(config.TRAIN_DIR + "pathways.csv")
 
 def clean_validation_taxonomy():
     """
@@ -118,5 +114,14 @@ def clean_validation_reduced():
     species_limited = val_species_scaled.loc[list(isHealthy_val_limited.columns)]
     species_limited.T.to_csv(config.VAL_DIR + "taxonomy241.csv")
 
+def get_groups(df):
+    """
+    Creates label encoded groups based on the first index of df
+    """
+    groups = np.asarray(list(df.index))
+    first_index = groups[:, 0] # study accession
+    encoder = LabelEncoder()
+    encoder.fit(np.unique(first_index))
+    return encoder.transform(first_index)
 
 

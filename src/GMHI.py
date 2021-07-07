@@ -1,6 +1,12 @@
 from sklearn.base import BaseEstimator
+from sklearn.metrics import balanced_accuracy_score
 import numpy as np
 import pandas as pd
+import sys
+
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 
 """
 Class that implements the GMHI algorithm. Extends sklearn base estimator for
@@ -8,50 +14,32 @@ cross validation compatibility
 """
 
 class GMHI(BaseEstimator):
-    def __init__(self, thresh = 0.00001, use_shannon = True):
-        self.theta_f = 1.4
-        self.theta_d = 0.1
-        self.thresh = thresh
+
+    def __init__(self, use_shannon = False, theta_f = 1, theta_d = 0):
         self.use_shannon = use_shannon
         self.fitted = False
-    
+        self.thresh = 0.00001
+        self.health_abundant = []
+        self.health_scarce = []
+        self.theta_f = theta_f
+        self.theta_d = theta_d
+
     def fit(self, X, y):
         """
-        Tries different values for theta_f and theta_d. Calls
-        fit_species and then scores the model. Keeps the best combination of 
-        theta_f and theta_d based on balanced accuracy on the training set, 
-        then recalls fit_species with those parameters
+        Based on theta_f and theta_d, 
         """
-        best_score = -1
-        best_theta_f = -1
-        best_theta_d = -1
-        # grid search theta
-        for theta_f in [1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0]:
-            for theta_d in [0, 0.05, 0.1, 0.15, 0.2]:
-                self.theta_f = theta_f
-                self.theta_d = theta_d
-                self.select_features(X, y)
-                score = self.score(X, y)
-                if score > best_score:
-                    best_theta_f = theta_f
-                    best_theta_d = theta_d
-                    best_score = score
-        # save the best theta values based on training set score
-        self.theta_f = best_theta_f
-        self.theta_d = best_theta_d
-        self.select_features(X, y)
-        return best_score, best_theta_f, best_theta_d
-
-    def select_features(self, X, y):
-        """
-            X is a df, (num_examples, num_features)
-            y is a df, (num_examples, 1)
-            X and y have column names indicating species names
-            Selects health abundant and health scarce species based on differences and fold changes
-        """
-        
         self.fitted = True
-        
+
+        difference, fold_change = self.get_proportion_comparisons(X, y)
+
+        self.select_features(difference, fold_change)
+
+    def get_proportion_comparisons(self, X, y):
+        """
+        Returns difference and fold changes between healthy and unhealthy
+        nonzero proportions for each feature
+        """
+
         # get healthy and unhealthy samples
         healthies = X.iloc[y.values, :]
         unhealthies = X.iloc[~y.values, :]
@@ -63,27 +51,36 @@ class GMHI(BaseEstimator):
         # get differences and fold change
         diff = proportion_healthy - proportion_unhealthy
         fold = proportion_healthy / proportion_unhealthy
+        return diff, fold
+
+    def select_features(self, difference, fold_change):
+        """
+            sets health_abundant and health_scarce
+        """
         
         # based on proportion differences and fold change, select health abundant
         # and health scarce
-        self.health_abundant = self.cutoff(diff, fold)
-        self.health_scarce = self.cutoff(-1 * diff, 1 / fold)
-        
+        self.health_abundant = self.cutoff(difference, fold_change)
+        self.health_scarce = self.cutoff(-1 * difference, 1 / fold_change)
+
+    def get_psi(self, X):
+        psi = self.richness(X)
+        if self.use_shannon:
+            shan = self.shannon(X)
+            psi *= shan
+        return psi
+
     def cutoff(self, diff, fold):
         return list(diff[
             (diff['Proportion'] > self.theta_d) & (fold['Proportion'] > self.theta_f)
         ].index)
-        
+
     def get_proportions(self, df):
         p = (df > self.thresh).sum() / df.shape[0]
         proportion = pd.DataFrame({"Proportion" : p})
         return proportion
-    
+
     def predict_raw(self, X):
-        """
-            X is a df, (num_examples, num_features)
-            X has column names indicating species names
-        """
         if not self.fitted:
             return None
         X[X < self.thresh] = 0
@@ -99,45 +96,42 @@ class GMHI(BaseEstimator):
 
     def predict(self, X):
         return self.predict_raw(X) > 0
-        
-    def get_psi(self, X):
-        psi = self.richness(X)
-        if self.use_shannon:
-            shan = self.shannon(X)
-            psi *= shan
-        return psi
 
     def score(self, X, y):
         """
-            Returns balanced accuracy, chi,  after predicting
+            Returns balanced accuracy, chi
         """
-        pred = self.predict_raw(X)
-        healthy_samples = pred.iloc[y.values, :]
-        unhealthy_samples = pred.iloc[~y.values, :]
-        p_h = np.sum(healthy_samples > 0) / len(healthy_samples)
-        p_n = np.sum(unhealthy_samples < 0) / len(unhealthy_samples)
-        return 0.5 * (p_h + p_n)[0]
-        
-    def get_species(self):
+        pred = self.predict(X)
+        score = balanced_accuracy_score(y, pred)
+        return score
+
+    def get_features(self):
         """
-            Returns the lists of health abundant and health scarce species as a tuple, if fitted
+            Returns the lists of health abundant and health scarce 
+            features as a tuple, if fitted
         """
         if not self.fitted:
             return None
         return self.health_abundant, self.health_scarce
 
-    def get_thetas(self):
-        """
-            Returns theta_f and theta_d
-        """
-        return self.theta_f, self.theta_d
-    
     def richness(self, X):
+        """
+        Returns the number of nonzero values for each sample (row) in X
+        """
         frame = pd.DataFrame((X > self.thresh).sum(axis=1))
         return frame
-    
+
     def shannon(self, X):
+        """
+        Returns the shannon diversity for each sample (row) in X
+        """
         logged = np.log(X[X > 0])
         logged.fillna(0, inplace=True)
         shan = logged * X * -1
         return pd.DataFrame(shan.sum(axis=1))
+
+    def get_thetas(self):
+        """
+            Returns the best fold change and difference thresholds
+        """
+        return self.theta_f, self.theta_d
