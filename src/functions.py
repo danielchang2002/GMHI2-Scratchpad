@@ -3,116 +3,64 @@ import numpy as np
 import config
 from sklearn.preprocessing import LabelEncoder
 
-def load_train(boolean = False):
-    """
-        Returns X_train, y_train from the data directory
-        If boolean, then returns X_train as a boolean matrix,
-        where each nonzero value is replaced with 1
-    """
-    return load(config.TRAIN_DIR + "taxonomy.csv", 
-            config.TRAIN_DIR + "isHealthy.csv", boolean)
-
-def load_val(boolean = False):
-    """
-        Returns X_val, y_val from the data directory
-        If boolean, then returns X_val as a boolean matrix,
-        where each nonzero value is replaced with 1
-    """
-    return load(config.VAL_DIR + "taxonomy679.csv", 
-            config.VAL_DIR + "isHealthy679.csv", boolean)
-
-def load(x_dir, y_dir, boolean):
-    species = pd.read_csv(x_dir, index_col=[0, 1])
-    species[species < 0.00001] = 0
-    X = species
-    isHealthy = pd.read_csv(y_dir, index_col=[0, 1])
-    y = isHealthy
-    if boolean:
-        X = (X > 0) * 1
-    return X, y
-
-def clean_training_taxonomy():
-    """
-        Messy function for cleaning excel file
-    """
-    filename = "Final_taxonomy_4347.xlsx"
-    df = pd.read_excel(config.RAW_DIR + filename, engine="openpyxl", header=None)
-
-    # transpose
-    transposed = df.T
-
-    # set first row as the column names
-    transposed.columns = transposed.iloc[0, :]
-    transposed.drop(index=0, inplace=True)
-
-    indexed = transposed.set_index(['Study Accession', 'Sample Accession or Sample ID'])
-
-    sorted_df = indexed.sort_index()
-
-    # extract X and y from the indexed + sorted dataframe 
-
-    isHealthy = sorted_df[['Phenotype']] == 'Healthy'
-    isHealthy.to_csv(config.TRAIN_DIR + "isHealthy.csv")
-
-    taxonomy = sorted_df.iloc[:, 31:]
-    scaled_taxonomy = taxonomy / 100
-    scaled_taxonomy.to_csv(config.TRAIN_DIR + "taxonomy.csv")
-
-
-def clean_training_pathway():
-    """
-        Messy function for cleaning excel file
-    """
+def clean1():
     filename = "Final_MetaCyc_pathways_4347.xlsx"
+    print("cleaning:", filename)
     df = pd.read_excel(config.RAW_DIR + filename, engine="openpyxl")
-    df2 = df.copy()
-    indexed = df2.set_index(['Study Accession', 'Sample Accession or Sample ID'])
-    cropped = indexed.iloc[:, 29:]
-    cropped_sorted = cropped.reindex(sorted(cropped.columns), axis=1)
-    cropped_sorted.to_csv(config.TRAIN_DIR + "pathways.csv")
+    indexed = df.set_index(['Study Accession', 'Sample Accession or Sample ID'])
+    indexed_sorted = indexed.sort_index(level=1)
+    pathways = indexed_sorted.iloc[:, 29:]
+    output_dir = config.CLEAN_DIR + "pathways4347.csv"
+    pathways.to_csv(output_dir)
+    print("\twritten to:", output_dir) 
 
-def clean_validation_taxonomy():
-    """
-        Messy function for cleaning excel file
-    """
-    filename = "Validation_final_679.csv"
-    val = pd.read_csv(
-            config.RAW_DIR + filename).sort_values('Sample_ID')
-    val_with_id = val.set_index(["Study_ID", "Sample_ID"])
+def clean2():
+    filename = "Final_taxonomy_4347.xlsx"
+    print("cleaning:", filename)
+    df = pd.read_excel(config.RAW_DIR + filename, engine="openpyxl", header=None, index_col=0)
+    transposed = df.T
+    indexed = transposed.set_index(["Study Accession", "Sample Accession or Sample ID"])
+    indexed_sorted = indexed.sort_index(level=1)
+    taxonomy = indexed_sorted.iloc[:, 31:]
+    taxonomy_scaled = taxonomy / 100
+    output_dir = config.CLEAN_DIR + "taxonomy4347.csv"
+    taxonomy_scaled.to_csv(output_dir)
+    print("\twritten to:", output_dir) 
+    isHealthy = indexed_sorted[['Phenotype']] == 'Healthy'
+    output_dir = config.CLEAN_DIR + "isHealthy4347.csv"
+    isHealthy.to_csv(output_dir)
+    print("\twritten to:", output_dir)
 
-    taxonomy_val = val_with_id.iloc[:, 2:]
-    taxonomy_val_scaled = taxonomy_val / 100
-
-    # don't use all the features, use the ones that the training set used
-    X, y = load_train()
-    taxonomy_val_scaled_cropped = (
-            taxonomy_val_scaled[list(X.columns)])
-    taxonomy_val_scaled_cropped.to_csv(config.VAL_DIR + "taxonomy679.csv")
-
-    isHealthy_val = val_with_id.iloc[:, [1]] == 'Healthy'
-    isHealthy_val.to_csv(config.VAL_DIR + "isHealthy679.csv")
-
-
-def clean_validation_reduced():
-    # Only 241 samples
+def clean3():
     filename = "Vaidation_humann2.xlsx"
-    val_pathways = pd.read_excel(config.RAW_DIR + filename, engine="openpyxl")
-    val_pathways = val_pathways.sort_values('Sample_ID')
-    val_pathways.index = val_pathways['Sample_ID']
-    pathways = val_pathways.iloc[:, 4:].T
+    print("cleaning:", filename)
+    df = pd.read_excel(config.RAW_DIR + filename, engine="openpyxl")
+    indexed = df.set_index(['Study_ID', "Sample_ID"])
+    indexed_sorted = indexed.sort_index(level=1)
+    pathway = indexed_sorted.iloc[:, 2:]
+    output_dir = config.CLEAN_DIR + "pathways241.csv"
+    pathway.to_csv(output_dir)
+    print("\twritten to:", output_dir)
+    isHealthy = indexed_sorted[["Phenotype"]] == 'Healthy'
+    output_dir = config.CLEAN_DIR + "isHealthy241.csv"
+    isHealthy.to_csv(output_dir)
+    print("\twritten to:", output_dir)
 
-    pathways.to_csv(config.VAL_DIR + "pathways241.csv")
-
-    isHealthy_val = pd.read_csv(config.VAL_DIR + "isHealthy679.csv", index_col=0).T
-
-    isHealthy_val_limited = isHealthy_val[list(pathways.columns)]
-    isHealthy_val_limited.to_csv(config.VAL_DIR + "isHealthy241.csv")
-
-    val_species_scaled = pd.read_csv(
-            config.VAL_DIR + "taxonomy679.csv", index_col=0) 
-
-    species_limited = val_species_scaled.loc[list(isHealthy_val_limited.columns)]
-    species_limited.T.to_csv(config.VAL_DIR + "taxonomy241.csv")
+def clean4():
+    filename = "Validation_final_679.csv"
+    print("cleaning:", filename)
+    df = pd.read_csv(config.RAW_DIR + filename)
+    indexed = df.set_index(['Study_ID', 'Sample_ID'])
+    indexed_sorted = indexed.sort_index(level=1)
+    taxonomy = indexed_sorted.iloc[:, 2:]
+    taxonomy_scaled = taxonomy / 100
+    output_dir = config.CLEAN_DIR + "taxonomy679.csv"
+    taxonomy_scaled.to_csv(output_dir)
+    print("\twrote to:", output_dir)
+    isHealthy = indexed_sorted.iloc[:, [1]] == 'Healthy'
+    output_dir = config.CLEAN_DIR + "isHealthy679.csv"
+    isHealthy.to_csv(output_dir)
+    print("\twritten to:", output_dir)
 
 def get_groups(df):
     """
@@ -124,4 +72,37 @@ def get_groups(df):
     encoder.fit(np.unique(first_index))
     return encoder.transform(first_index)
 
+def load_taxonomy():
+    """
+    Returns X and y with just taxonomy data,
+    combines both training and validation sets
+    """
+    taxonomy = pd.read_csv(config.CLEAN_DIR + "taxonomy4347.csv", index_col=[0,1])
+    isHealthy = pd.read_csv(config.CLEAN_DIR + "isHealthy4347.csv", index_col=[0, 1])
+    taxonomy_val = pd.read_csv(config.CLEAN_DIR + "taxonomy679.csv", index_col=[0, 1])
+    isHealthy_val = pd.read_csv(config.CLEAN_DIR + "isHealthy679.csv", index_col=[0, 1])
+    taxonomy_val_cropped = taxonomy_val[taxonomy.columns]
+    X = pd.concat([taxonomy, taxonomy_val_cropped])
+    y = pd.concat([isHealthy, isHealthy_val])
+    return X, y
+
+def load_both():
+    """
+    Returns X and y with both taxonomy and pathway data,
+    combines both training and reduced validation sets
+    """
+    taxonomy = pd.read_csv(config.CLEAN_DIR + "taxonomy4347.csv", index_col=[0,1])
+    isHealthy = pd.read_csv(config.CLEAN_DIR + "isHealthy4347.csv", index_col=[0, 1])
+    taxonomy_val = pd.read_csv(config.CLEAN_DIR + "taxonomy679.csv", index_col=[0, 1])
+    # elim uneccesary features
+    taxonomy_val_cropped = taxonomy_val[taxonomy.columns]
+    pathways = pd.read_csv(config.CLEAN_DIR + "pathways4347.csv", index_col=[0,1])
+    pathways_val = pd.read_csv(config.CLEAN_DIR + "pathways241.csv", index_col=[0,1])
+    taxonomy_val_cropped_reduced = taxonomy_val_cropped.loc[pathways_val.index]
+    isHealthy_val_reduced = pd.read_csv(config.CLEAN_DIR + "isHealthy241.csv", index_col=[0,1])
+    taxonomy_final = pd.concat([taxonomy, taxonomy_val_cropped_reduced])
+    pathways_final = pd.concat([pathways, pathways_val])
+    X = pd.concat([taxonomy_final, pathways_final], axis=1)
+    y = pd.concat([isHealthy, isHealthy_val_reduced])
+    return X, y
 

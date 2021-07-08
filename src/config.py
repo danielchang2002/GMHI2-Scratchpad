@@ -1,4 +1,3 @@
 RAW_DIR = "../data/raw/"
-TRAIN_DIR = "../data/train/"
-VAL_DIR = "../data/val/"
+CLEAN_DIR = "../data/clean/"
 OUTPUT_DIR = "../output/"
