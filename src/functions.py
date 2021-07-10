@@ -72,7 +72,7 @@ def get_groups(df):
     encoder.fit(np.unique(first_index))
     return encoder.transform(first_index)
 
-def load_taxonomy():
+def load_taxonomy(boolean=False, thresh=0.00001):
     """
     Returns X and y with just taxonomy data,
     combines both training and validation sets
@@ -84,9 +84,11 @@ def load_taxonomy():
     taxonomy_val_cropped = taxonomy_val[taxonomy.columns]
     X = pd.concat([taxonomy, taxonomy_val_cropped])
     y = pd.concat([isHealthy, isHealthy_val])
+    if (boolean):
+        X = X > thresh
     return X, y
 
-def load_both():
+def load_both(boolean=False, thresh=0.00001):
     """
     Returns X and y with both taxonomy and pathway data,
     combines both training and reduced validation sets
@@ -104,5 +106,7 @@ def load_both():
     pathways_final = pd.concat([pathways, pathways_val])
     X = pd.concat([taxonomy_final, pathways_final], axis=1)
     y = pd.concat([isHealthy, isHealthy_val_reduced])
+    if (boolean):
+        X = X > thresh
     return X, y
 
