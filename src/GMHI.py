@@ -30,6 +30,10 @@ class GMHI(BaseEstimator):
         Identifies health_abundant and health_scarce
         columns/features
         """
+        if(isinstance(X, pd.DataFrame)):
+            X = X.values
+        if(isinstance(y, pd.DataFrame)):
+            y = y.values
         self.fitted = True
         difference, fold_change = self.get_proportion_comparisons(X, y)
         self.select_features(difference, fold_change)
