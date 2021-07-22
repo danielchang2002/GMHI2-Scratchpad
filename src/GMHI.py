@@ -74,6 +74,8 @@ class GMHI(BaseEstimator):
     def predict_raw(self, X):
         if not self.fitted:
             return None
+        if(isinstance(X, pd.DataFrame)):
+            X = X.values
         X_healthy_features = X[:, self.health_abundant_columns]
         X_unhealthy_features = X[:, self.health_scarce_columns]
         psi_MH = self.get_psi(X_healthy_features) / (
